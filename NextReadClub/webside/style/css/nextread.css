@@ -1,0 +1,98 @@
+@font-face {
+  font-family: nordic;
+  src: url(../fonts/PTF-NORDIC-Rnd-Lt.ttf);
+}
+
+@font-face {
+  font-family: angleterre;
+  src: url(../fonts/angltrr.tff);
+}
+
+.top {
+  padding-bottom: 100px;
+}
+
+.header {
+  font-family: nordic;
+  text-align: center;
+  font-size: 100px;
+  padding-top: 40px;
+}
+
+.header-sub {
+  font-family: nordic;
+  text-align: center; 
+  font-size: 60px;  
+  padding-top: 20px;
+}
+
+.content {
+  font-family: angleterre;
+  font-size: 40px;
+}
+  
+.textbox {
+  font-family: angleterre;
+  height: 33px;
+  width: 300px;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding-left: 5px;
+}
+
+.button {
+  font-family: angleterre;
+  height: 39px;
+  width: 75px;
+  position: relative;
+  top: 0px;
+  font-size: 20px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height:80px;
+  width: 100%;
+  background-color: rgba(144,141,158,0.6);
+  
+  font-family: angleterre;
+  text-align: center;
+}
+
+.col-1-4 {
+  width: 25%;
+  float: left;
+}
+
+.col-offset {
+  margin-left: 16.67%;
+}
+
+#input-box, #search-header {
+  text-align: center;
+}
+
+#bottom-tabs {
+  float: center;
+  font-size: 25px;
+}
+
+body {
+  background-color: #EDDAB8;
+}
+
+nav li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  padding: 0px;
+}

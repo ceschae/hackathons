@@ -5,9 +5,77 @@
 </head>
 <body>
 
-
-
-<h1>Queen of All Things Incredible, Caitlin, is still developing. Please stand by.</h1>
+  <link rel="stylesheet" type="text/css" href="./style/css/nextread.css">
 
 </body>
+
+<div class="top">
+  <div class="header">
+    Next Read Club
+  </div>
+  <div class="header-sub">
+    Find your next favorite book
+  </div>
+</div>
+
+<div class="content">
+  <div id="search-header"> 
+  What's a book that you love?
+  </div>
+  <form id="input-box">
+    <input class="textbox" type="text" placeholder="e.g. Harry Potter" id="search-box">
+    <button type="button" onclick="searchBook(document.getElementById('search-box').value)">Go!</button>
+  </form>
+  <div id="search-result">
+    results go here!
+  </div>
+</div>
+
+<div class="footer">
+  <nav id="bottom-tabs">
+    <ul>
+      <div class="col-1-4"><li><a href="">About Us</a></li></div>
+      <div class="col-1-4"><li><a href="">Popular Feed</a></li></div>
+      <div class="col-1-4"><li><a href="">Search</a></li></div>
+      <div class="col-1-4"><li><a href="">Your Profile</a></li></div>
+    </ul>
+  </nav>
+</div>
+
+<script> 
+  
+  function searchBook(bookName) {
+    bookName = bookName.replace("\'", "%27");
+    bookName = bookName.replace(" ", "+");
+    bookName = bookName.replace("!", "%21");
+    bookName = bookName.replace("?", "%3F");
+    bookName = bookName.replace(";", "%3B");
+    bookName = bookName.replace("(", "%28");
+    bookName = bookName.replace(")", "%29");
+
+    var url = "https://www.goodreads.com/search.xml?q=" + bookName + "&key=T3IMSsYOcjl0Z0GF2CeQeA";
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (xhttp.readyState == 4 && xhttp.status == 200) {
+        reportBookFound(xhttp);
+      }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
+  }
+
+  function reportBookFound(xml) {
+    var xmlDoc = xml.responseXML;
+    var searchResults = xmlDoc.getElementsByTagName("book");
+    var firstResult = searchResults[0];
+    var bookName = firstResult.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+    var authorName = firstResult.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+    var year = firstResult.getElementsByTagName("original_publication_year")[0].childNodes[0].nodeValue;
+
+    document.getElementById("search-result").innerHTML = "Is your book " + bookName + " by " + authorName + ", published in " + year + "?";
+  }
+
+</script>
+
 </html>
