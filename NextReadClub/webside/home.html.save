@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Next Read Club</title>
+</head>
+<body>
+
+  <link rel="stylesheet" type="text/css" href="./style/css/nextread.css">
+
+</body>
+
+<div class="top">
+  <div class="header">
+    Next Read Club
+  </div>
+  <div class="header-sub">
+    Find your next favorite book
+  </div>
+</div>
+
+<div class="content"> 
+  
+    What's a book you loved? <input class="textbox" type="text" name="book-input" placeholder="e.g. Harry Potter">
+    <input class="button" type="submit" value="Go!">
+  </form>
+</div>
+
+<div class="footer">
+</div>
+
+</html>

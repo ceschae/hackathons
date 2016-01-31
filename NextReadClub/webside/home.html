@@ -6,6 +6,7 @@
 <body>
 
   <link rel="stylesheet" type="text/css" href="./style/css/nextread.css">
+  <script src="./style/js/jquery-1.12.0.min.js"></script>
 
 </body>
 
@@ -53,16 +54,14 @@
     bookName = bookName.replace("(", "%28");
     bookName = bookName.replace(")", "%29");
 
-    var url = "https://www.goodreads.com/search.xml?q=" + bookName + "&key=T3IMSsYOcjl0Z0GF2CeQeA";
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (xhttp.readyState == 4 && xhttp.status == 200) {
-        reportBookFound(xhttp);
+    $.ajax({
+      type: "GET",
+      url: "ajax-handler.php",
+      data: {'callSearchGoodreads':bookName},
+      success: function( result ) {
+          document.getElementById("search-result").innerHTML = "result is " + result;
       }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    });
   }
 
   function reportBookFound(xml) {
